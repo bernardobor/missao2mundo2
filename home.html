@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-..." crossorigin="anonymous"> 
+</head>
+<body class="container">
+    <form calss = "form m-2">
+
+        <label class="label-form">Valor A</label> <input class="form-control" type="number" id = "v1">
+        <label class="label-form">Valor B</label> <input class="form-control"  type="number" id = "v2">
+        <label class="label-form">Operação</label>
+        <select class="form-select" id="oper">
+            <option>Soma</option><option>Subtração</option>
+            <option>Multiplicação</option><option>Divisão</option>
+        </select>
+        <a href="#" class="btn btn-primary m-2" onclick="execute()">Executar</a>
+    </form>
+
+    <div class="alert alert-success" id="resp">O Resultado aparece aqui</div>
+
+    <script src="calculadora.js"></script>
+    <script>
+        const execute = ()=>{
+            const x = eval(document.getElementById("v1").value)
+            const y = eval(document.getElementById("v2").value)
+            let oper = eval(document.getElementById("oper").selectedIndex)
+            let result = (oper ==0)?somar(x,y):(oper==1)?subtrair(x,y):(oper==2)?multiplicar(x,y):(oper==3)?dividir(x,y):exponenciar(x,y);
+            document.getElementById("resp").innerHTML=`O resultado da operação é ${result}`;
+        }
+
+
+    </script>
+</body>
+</html>
+
